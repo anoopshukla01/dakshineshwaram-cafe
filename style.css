@@ -1,0 +1,623 @@
+/* ==========================================================================
+   DAKSHINESHWARAM CAFÉ (दक्षिणेश्वरम कैफे) - Link-Hub Landing Page Styles
+   Proportionally Resized & Structured to match the Reference Poster Sample
+   ========================================================================== */
+
+:root {
+  /* Rich Temple Gold Palette */
+  --gold-highlight: #fae392;
+  --gold-primary: #f5c46b;
+  --gold-rich: #d9902f;
+  --gold-deep: #b86a1a;
+  --gold-shadow: #733c09;
+  --gold-glow: rgba(245, 196, 107, 0.42);
+
+  /* Deep Roasted Coffee & Traditional Leather Browns */
+  --bg-deep-outer: #090302;
+  --bg-card-center: #240e06;
+  --bg-card-edge: #130602;
+
+  /* Typography Colors */
+  --text-cream: #fbf1e2;
+  --text-warm-white: #ffffff;
+  --text-muted: #d5bfa5;
+  --text-gold: #f7ce80;
+
+  /* Font Families */
+  --font-serif-display: 'Cinzel', serif;
+  --font-serif-tagline: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Transitions & Shadows */
+  --shadow-card: 0 14px 44px rgba(0, 0, 0, 0.95), 0 0 25px rgba(217, 144, 47, 0.12);
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* CSS Reset & Foundation */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  background-color: var(--bg-deep-outer);
+  color: var(--text-cream);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 6px;
+  margin: 0;
+  background: radial-gradient(circle at 50% 30%, #2b1207 0%, #150702 55%, #080201 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Ambient Radial Vignette & Texture Overlay */
+.bg-vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 50%, rgba(245, 196, 107, 0.02) 0%, rgba(8, 2, 1, 0.88) 90%);
+  z-index: 0;
+}
+
+.bg-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: radial-gradient(#f5c46b 1px, transparent 1px);
+  background-size: 16px 16px;
+  z-index: 0;
+}
+
+/* Page Frame Wrapper - Centered, max-width ~440px to match sample poster ratio */
+.card-frame-wrapper {
+  width: 100%;
+  max-width: 440px;
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+}
+
+/* Main Hub Card with Ornate Frame */
+.cafe-hub-card {
+  width: 100%;
+  position: relative;
+  background: radial-gradient(ellipse at 50% 0%, #2c1207 0%, #1a0803 50%, #100401 100%);
+  border-radius: 10px;
+  padding: 8px 10px 14px 10px;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  border: 1px solid rgba(245, 196, 107, 0.4);
+}
+
+/* 1. Ornate Gold Double-Line Border & SVG Corner Flourishes */
+.card-border-ornament {
+  position: absolute;
+  inset: 5px;
+  border: 1.4px solid rgba(245, 196, 107, 0.65);
+  border-radius: 7px;
+  pointer-events: none;
+  z-index: 12;
+}
+
+.card-border-ornament::after {
+  content: "";
+  position: absolute;
+  inset: 3.5px;
+  border: 0.8px dashed rgba(245, 196, 107, 0.32);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.flourish-corner {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+  z-index: 14;
+}
+
+.f-tl { top: -2px; left: -2px; }
+.f-tr { top: -2px; right: -2px; }
+.f-bl { bottom: -2px; left: -2px; }
+.f-br { bottom: -2px; right: -2px; }
+
+/* 5. TOP CORNER ACCENTS: BANANA LEAVES (TOP-LEFT) & HANGING BRASS LAMPS (TOP-RIGHT) */
+.top-corner-accents {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9;
+  overflow: hidden;
+}
+
+.corner-leaves-left {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 95px;
+  max-width: 24%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.85));
+}
+
+.corner-lamps-wrap {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 105px;
+  max-width: 26%;
+  height: auto;
+  line-height: 0;
+}
+
+.corner-lamps-right {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.85));
+}
+
+/* Live Flickering Flame Glow Overlays on Top-Right Hanging Lamps */
+.lamp-flame-point {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 215, 80, 0.95) 0%, rgba(255, 110, 0, 0.45) 60%, transparent 80%);
+  animation: flameGlowAura 2s ease-in-out infinite alternate;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.flame-tr1 { left: 24%; top: 61%; animation-delay: 0.1s; }
+.flame-tr2 { left: 78%; top: 61%; animation-delay: 0.6s; }
+
+@keyframes flameGlowAura {
+  0% { transform: translate(-50%, -50%) scale(0.85); opacity: 0.65; }
+  100% { transform: translate(-50%, -50%) scale(1.35); opacity: 1; }
+}
+
+/* ==========================================================================
+   2 & 3. HEADER: OFFICIAL LOGO GRAPHIC & TAGLINE
+   ========================================================================== */
+.hub-header {
+  position: relative;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 2px;
+  z-index: 10;
+}
+
+.brand-logo-wrap {
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto;
+  line-height: 0;
+}
+
+.brand-logo-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 12px rgba(245, 196, 107, 0.25));
+}
+
+/* Tagline */
+.tagline-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.gold-filigree-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72%;
+  max-width: 280px;
+  gap: 6px;
+  margin: 2px 0;
+}
+
+.filigree-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(245, 196, 107, 0.65), transparent);
+}
+
+.filigree-diamond {
+  font-size: 0.68rem;
+  color: var(--gold-primary);
+  filter: drop-shadow(0 0 4px var(--gold-rich));
+}
+
+.divider-lower {
+  width: 55%;
+  margin-top: 3px;
+  opacity: 0.8;
+}
+
+.tagline-text {
+  font-family: var(--font-serif-tagline);
+  font-size: clamp(0.72rem, 2.5vw, 0.82rem);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--text-cream);
+  text-transform: uppercase;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  padding: 1px 2px;
+}
+
+/* ==========================================================================
+   6. 2-COLUMN GRID OF ALL 6 OFFICIAL GRAPHIC LINK BUTTONS
+   ========================================================================== */
+.links-section {
+  position: relative;
+  z-index: 12;
+  margin-top: 8px;
+  margin-bottom: 6px;
+}
+
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 7px;
+}
+
+/* Graphic Link Buttons (All 6 Buttons) */
+.graphic-link-btn {
+  display: block;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+.btn-graphic-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.65));
+  transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+.graphic-link-btn:hover,
+.graphic-link-btn:focus-visible {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 0 12px rgba(245, 196, 107, 0.6));
+}
+
+.graphic-link-btn:hover .btn-graphic-img {
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.85)) brightness(1.05);
+}
+
+.graphic-link-btn:active {
+  transform: translateY(1px) scale(0.985);
+}
+
+/* Staggered Entrance Animation */
+.graphic-link-btn.animate-in {
+  animation: btnEntranceFade 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes btnEntranceFade {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   7. SOCIAL ICONS IN GOLD-OUTLINED ROUNDED SQUARES
+   ========================================================================== */
+.socials-band {
+  position: relative;
+  z-index: 12;
+  margin: 4px 0 6px 0;
+  text-align: center;
+}
+
+.divider-socials {
+  width: 75%;
+  margin: 0 auto 6px auto;
+}
+
+.socials-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-sq-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: radial-gradient(circle at 30% 30%, #2f1408 0%, #160803 100%);
+  border: 1.2px solid var(--gold-rich);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-primary);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(245, 196, 107, 0.2);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.social-sq-btn svg {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--transition-fast);
+}
+
+.social-sq-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold-highlight);
+  color: #ffffff;
+  background: radial-gradient(circle at 30% 30%, #461f0e 0%, #250d05 100%);
+  box-shadow: 0 0 12px rgba(245, 196, 107, 0.5), 0 3px 8px rgba(0, 0, 0, 0.7);
+}
+
+.social-sq-btn:hover svg {
+  transform: scale(1.1);
+}
+
+#btnInstagram:hover { border-color: #f58529; box-shadow: 0 0 12px rgba(225, 48, 108, 0.5); }
+#btnFacebook:hover { border-color: #1877f2; box-shadow: 0 0 12px rgba(24, 119, 242, 0.5); }
+#btnYoutube:hover { border-color: #ff0000; box-shadow: 0 0 12px rgba(255, 0, 0, 0.5); }
+
+/* ==========================================================================
+   8. SCENIC KERALA BACKWATERS & HOUSEBOAT PANORAMIC BANNER
+   ========================================================================== */
+.scenic-houseboat-section {
+  position: relative;
+  z-index: 11;
+  width: 100%;
+  margin: 6px 0 8px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(245, 196, 107, 0.28);
+  background: radial-gradient(ellipse at 50% 50%, #1c0b04 0%, #0a0301 100%);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.8);
+}
+
+.backwater-houseboat-wrap {
+  width: 100%;
+  position: relative;
+  line-height: 0;
+}
+
+.houseboat-panoramic-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.75));
+}
+
+/* ==========================================================================
+   9 & 10. FOOTER: LOCATION, PHONE & MARINER'S RIBBON
+   ========================================================================== */
+.hub-footer {
+  position: relative;
+  z-index: 12;
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* Contacts Row */
+.footer-contacts-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 5px 8px;
+  background: rgba(28, 12, 5, 0.65);
+  border: 1px solid rgba(245, 196, 107, 0.28);
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+.footer-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: var(--text-cream);
+  font-family: var(--font-body);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  line-height: 1.2;
+}
+
+.footer-contact-link:hover {
+  color: var(--gold-highlight);
+  transform: translateY(-1px);
+}
+
+.contact-pin-icon,
+.contact-phone-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--gold-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-pin-icon svg,
+.contact-phone-icon svg {
+  width: 13px;
+  height: 13px;
+}
+
+.contact-address-text {
+  font-size: clamp(0.62rem, 2vw, 0.68rem);
+  text-align: left;
+}
+
+.contact-phone-number {
+  font-size: clamp(0.68rem, 2.2vw, 0.74rem);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.footer-v-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(245, 196, 107, 0.35);
+  flex-shrink: 0;
+}
+
+/* 10. The Mariner's Cafe Ribbon Strip */
+.ribbon-container {
+  margin: 6px 0 8px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.scalloped-ribbon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  background: linear-gradient(135deg, #784210 0%, #4a2508 50%, #2d1405 100%);
+  border: 1px solid var(--gold-rich);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.65), 0 0 10px rgba(217, 144, 47, 0.2);
+  border-radius: 4px;
+  padding: 4px 10px;
+  max-width: 96%;
+}
+
+.ribbon-glyph {
+  width: 15px;
+  height: 15px;
+  color: var(--gold-primary);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
+}
+
+.ribbon-glyph svg {
+  width: 13px;
+  height: 13px;
+}
+
+.ribbon-caption {
+  font-family: var(--font-serif-tagline);
+  font-size: clamp(0.68rem, 2.2vw, 0.76rem);
+  color: #fff4db;
+  line-height: 1.2;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+.mariner-bold {
+  font-family: var(--font-serif-display);
+  color: var(--gold-highlight);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.ribbon-caption em {
+  font-style: italic;
+  color: var(--gold-primary);
+}
+
+/* 11. Copyright Line */
+.copyright-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.copyright-flourish {
+  color: var(--gold-deep);
+  font-size: 0.78rem;
+  opacity: 0.85;
+}
+
+.flourish-flip {
+  transform: scaleX(-1);
+}
+
+.copyright-legal {
+  font-family: var(--font-serif-display);
+  font-size: clamp(0.54rem, 1.8vw, 0.62rem);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--gold-rich);
+  text-transform: uppercase;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   RESPONSIVENESS (Down to 360px)
+   ========================================================================== */
+@media (max-width: 400px) {
+  .cafe-hub-card {
+    padding: 8px 8px 12px 8px;
+  }
+
+  .link-grid {
+    gap: 6px;
+  }
+
+  .scenic-houseboat-section {
+    margin: 4px 0 6px 0;
+  }
+
+  .footer-contacts-row {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .footer-v-divider {
+    width: 60%;
+    height: 1px;
+  }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .graphic-link-btn {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
