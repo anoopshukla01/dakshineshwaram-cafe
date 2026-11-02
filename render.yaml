@@ -1,0 +1,12 @@
+services:
+  - type: static
+    name: dakshineshwaram-cafe
+    repo: https://github.com/anoopshukla01/dakshineshwaram-cafe
+    branch: main
+    buildCommand: ""
+    publishPath: "."
+    pullRequestPreviewsEnabled: true
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
