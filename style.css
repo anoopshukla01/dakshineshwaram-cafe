@@ -536,8 +536,24 @@ body {
   font-family: var(--font-serif-tagline);
   font-size: clamp(0.68rem, 2.2vw, 0.76rem);
   color: #fff4db;
-  line-height: 1.2;
+  line-height: 1.25;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ribbon-main {
+  display: block;
+}
+
+.ribbon-sub {
+  display: block;
+  font-size: 0.9em;
+  color: var(--gold-primary);
+  letter-spacing: 0.04em;
+  margin-top: 1px;
 }
 
 .mariner-bold {
@@ -547,7 +563,7 @@ body {
   letter-spacing: 0.02em;
 }
 
-.ribbon-caption em {
+.ribbon-sub em {
   font-style: italic;
   color: var(--gold-primary);
 }

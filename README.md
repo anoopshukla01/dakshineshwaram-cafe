@@ -66,3 +66,4 @@ Kasya Rd, Mohaddipur, near Orion Mall, Gorakhpur
 
 Managed by **The Mariner’s Cafe** – *The Perfect Shore Leave*  
 © 2026 Dakshineshvaram Kafe · Gorakhpur. All rights reserved.
+
